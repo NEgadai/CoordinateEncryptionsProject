@@ -11,7 +11,6 @@ public class MainFrame extends JFrame {
 	private static Dimension frameSize;
 	private MainFrame(String str){
 		super(str);
-//		setMenu();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout(0,0));//set border layout for set 2 panels - one for the city background and one for the below buttons
 	}
@@ -31,9 +30,7 @@ public class MainFrame extends JFrame {
 		
 		
 		frameSize = new Dimension((int)MainPanel.getBackgroundSize().getWidth(),(int)MainPanel.getBackgroundSize().getHeight());
-//		final ButtonsPanel buttonsPanel = new ButtonsPanel();
 		frame.add(backgroundPanel);
-//		frame.add(buttonsPanel,BorderLayout.SOUTH);//stick the panel of the buttons in the SOUTH location.  
 		frame.setPreferredSize(new Dimension(frameSize.width,(int)(frameSize.height)));//set size of the frame as the size of the background
 		frame.setLocation(screenSize.width/2-frame.getPreferredSize().width/2, screenSize.height/2-frame.getPreferredSize().height/2);//set the frame in the middle of the screen
 		
