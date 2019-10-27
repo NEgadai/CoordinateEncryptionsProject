@@ -29,13 +29,10 @@ public class DecryptingPanel extends JPanel {
 		c.fill = GridBagConstraints.BOTH;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.insets = new Insets(20, 40, 0, 40);
-//		c.weightx = 1;
-//		c.weighty = 10/2;
 		c.gridx = 0;
 		c.gridy = 0;
 		JLabel codeInserting = new JLabel("Insert Your Code:");
 		add(codeInserting,c);
-//		thecode.setLineWrap(true);
 		JScrollPane codeScrolling = new JScrollPane(thecode);
 		
 		c.gridy = 1;
@@ -49,13 +46,11 @@ public class DecryptingPanel extends JPanel {
 		c.gridy = 2;
 		c.weightx = 0;
 		c.weighty = 0;
-//		c.insets = new Insets(10, 40, 0, 40);
 		add(key,c);
 		
 		keyField = new JTextField();
 		c.insets = new Insets(0, 80, 0, 40);
 		c.gridx = 1;
-//		keyField.setSize(new Dimension(10,10));
 		add(keyField,c);
 		
 		c.gridx = 0;
@@ -83,7 +78,6 @@ public class DecryptingPanel extends JPanel {
 		c.insets = new Insets(0, 40, 10, 40);
 		add(Submit,c);
 		setOpaque(false);
-//		setPreferredSize(new Dimension(MainPanel.getBackgroundSize().width/2,MainPanel.getBackgroundSize().height));
 	}
 	public static void clearOutput(){thecode.setText("");keyField.setText("");}
 }
