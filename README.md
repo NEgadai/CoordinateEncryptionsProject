@@ -6,7 +6,8 @@ Coordinate Encryptions - Asymmetric cryptography.
 
 ## Authors
 
-* **Tony Schneider** - *Programming* - [TonySchneider](https://github.com/tonySchneider)
+* **Tony Schneider**
+* **Daniel Sukharev**
 
 ## Setup
 
