@@ -14,8 +14,7 @@ public class googleMapsAPI {
 		Double[] cordins= new  Double[2];
 		String url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 		String addressInput = address;
-//		addressInput = addressInput.replace(",", "+");
-//		addressInput = addressInput.replace(" ", "+");
+
 	    String key = "AIzaSyDzq7jShLJY1pb_KMjrkmJYA1dlDmZnt3c";
 		Elements Source = Jsoup.connect(url+addressInput+"&key="+key).ignoreContentType(true).get().select("body");
 		JSONParser parser = new JSONParser(); 
@@ -25,15 +24,14 @@ public class googleMapsAPI {
 		try{
 			toObj = (JSONObject) resultsElement.get(0);
 		}catch (IndexOutOfBoundsException e){
-//			System.out.println("Incorrect address");
+			System.out.println("Incorrect address");
 			return null;
 		}
 		JSONObject geometryElement = (JSONObject) toObj.get("geometry");
 		JSONObject locationElement = (JSONObject) geometryElement.get("location");
 		cordins[0] = (Double) locationElement.get("lat");
 		cordins[1] = (Double) locationElement.get("lng");
-//		System.out.println("["+cordins[0]+","+cordins[1]+"]");
-//		System.out.println(address);
+
 		return cordins;
 	}
 	public static String getChar(Double[] Cord)throws ParseException, IOException{
@@ -48,55 +46,22 @@ public class googleMapsAPI {
 		try{
 			toObj = (JSONObject) resultsElement.get(0);
 		}catch (IndexOutOfBoundsException e){
-//			System.out.println("Incorrect Coordinates");
+			System.out.println("Incorrect Coordinates");
 			return null;
 		}
 		JSONArray address_componentsElement = (JSONArray) toObj.get("address_components");
-//		System.out.println(address_componentsElement);
 		JSONObject thirdElement = null;
-//		try{
-//			thirdElement = (JSONObject) address_componentsElement.get(3);
-//		}catch(IndexOutOfBoundsException e){
-//			thirdElement = (JSONObject) address_componentsElement.get(0);
-//		}
+
 		String name = null;
 		try{
 			thirdElement = (JSONObject) address_componentsElement.get(2);
 			name = (String)thirdElement.get("long_name");
 		}catch(IndexOutOfBoundsException e){
-//			System.out.println();
+			return null;
 		}
-//		String name = (String)thirdElement.get("long_name");
-//		String name = (String)toObj.get("formatted_address");
-//		System.out.println(name);
-//		cordins[0] = (Double) locationElement.get("lat");
-//		cordins[1] = (Double) locationElement.get("lng");
 		if(name != null)
 			return String.valueOf(name.charAt(0)).toLowerCase();
 		return name;
 	}
-//	public static String getAddress(Double[] Cord)throws ParseException, IOException{
-//		String url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-//		String cordInput = Cord[0]+","+Cord[1];
-//	    String key = "AIzaSyDzq7jShLJY1pb_KMjrkmJYA1dlDmZnt3c";
-//		Elements Source = Jsoup.connect(url+cordInput+"&key="+key).ignoreContentType(true).get().select("body");
-//		JSONParser parser = new JSONParser(); 
-//		JSONObject bodySource = (JSONObject) parser.parse(Source.text());
-//		JSONArray resultsElement = (JSONArray) bodySource.get("results");
-//		JSONObject toObj = null;
-//		try{
-//			toObj = (JSONObject) resultsElement.get(0);
-//		}catch (IndexOutOfBoundsException e){
-////			System.out.println("Incorrect Coordinates");
-//			return null;
-//		}
-//		JSONArray address_componentsElement = (JSONArray) toObj.get("address_components");
-//		JSONObject thirdElement = null, lastElement = null;
-//		String name = null, lastName = null;
-//		thirdElement = (JSONObject) address_componentsElement.get(2);
-////		lastElement = (JSONObject) address_componentsElement.get(address_componentsElement.size()-1);
-//		name = (String)thirdElement.get("long_name");
-////		lastName = (String)lastElement.get("long_name");
-//		return (String)toObj.get("formatted_address");
-//	}
+
 }
