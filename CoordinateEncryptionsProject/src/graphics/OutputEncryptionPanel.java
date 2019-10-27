@@ -17,14 +17,9 @@ public class OutputEncryptionPanel extends JPanel {
 		c.fill = GridBagConstraints.BOTH;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.insets = new Insets(0, 40, 0, 40);
-//		c.weightx = 1;
-//		c.weighty = 10/2;
-//		c.gridx = 0;
-//		c.gridy = 0;
 		JLabel messageInserting = new JLabel("Output:");
 		add(messageInserting,c);
 		theOutput.setEditable(false);
-//		theOutput.setLineWrap(true);
 		JScrollPane outputScrolling = new JScrollPane(theOutput);
 		c.gridy = 1;
 		c.weightx = 1;
@@ -32,7 +27,6 @@ public class OutputEncryptionPanel extends JPanel {
 		c.insets = new Insets(0, 40, 100, 40);
 		add(outputScrolling,c);
 		setOpaque(false);
-//		setPreferredSize(new Dimension(MainPanel.getBackgroundSize().width/2,MainPanel.getBackgroundSize().height));
 	}
 	public static void setOutput(String output){
 		theOutput.setText(theOutput.getText()+output);
